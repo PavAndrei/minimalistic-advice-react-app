@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  --lightest: hsl(193, 38%, 86%);
+  --green: hsl(150, 100%, 66%);
+
+  --gray: hsl(217, 19%, 38%);
+  --darker: hsl(217, 19%, 24%);
+  --darkest: hsl(218, 23%, 16%);
+
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
