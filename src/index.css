@@ -18,4 +18,53 @@ body {
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  background-color: var(--darkest);
+  font-weight: 800;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+}
+
+.wrapper {
+  background-color: var(--darker);
+  padding: 3rem;
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 30rem;
+}
+
+.title {
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.text {
+  color: var(--lightest);
+}
+
+.divider {
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 3.2rem;
+  height: 3.2rem;
+
+  background-color: var(--green);
+  border-radius: 50%;
 }

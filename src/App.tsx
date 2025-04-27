@@ -1,19 +1,23 @@
-import { useEffect } from "react";
+import { useFetch } from "./hooks/useFetch";
+
+import { BASE_URL } from "./constants/constants";
+import { IconDice } from "./icons/IconDice";
 
 const App = () => {
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch("https://api.adviceslip.com/advice");
-        const data = await response.json();
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
+  const { data, error, loading } = useFetch(BASE_URL);
 
-  return <div>advice</div>;
+  return (
+    <div className="wrapper">
+      {loading && <span>Loading...</span>}
+      {error && <span>Something went wrong...</span>}
+      <h1 className="title">ADVICE #{data?.id}</h1>
+      <p className="text">{data?.advice}</p>
+      <div className="divider"></div>
+      <button className="btn" aria-label="generate new advice">
+        <IconDice />
+      </button>
+    </div>
+  );
 };
 
 export default App;
