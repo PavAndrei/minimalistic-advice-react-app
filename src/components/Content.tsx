@@ -11,7 +11,7 @@ export const Content: FC = () => {
       {!loading && !error && (
         <>
           <h1 className="title">ADVICE #{data?.id}</h1>
-          <p className="text">{data?.advice}</p>
+          <p className="text">"{data?.advice}"</p>
         </>
       )}
 

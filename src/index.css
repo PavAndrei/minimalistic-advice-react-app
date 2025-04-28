@@ -113,6 +113,12 @@ button {
 
   bottom: calc(0% - 75px);
   left: calc(50% - 25px);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  box-shadow: 0px 0px 20px 5px var(--green);
 }
 
 .message {
