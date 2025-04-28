@@ -14,6 +14,8 @@ export const useFetch = (
 
   const getData = async () => {
     try {
+      setLoading(true);
+      setError(null);
       const result = await fetchAdvice(url);
       setData(result);
     } catch (error) {

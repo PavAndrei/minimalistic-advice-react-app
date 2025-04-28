@@ -50,13 +50,8 @@ button {
 
   border-radius: 16px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
   width: 35%;
-  height: 35%;
+  height: 30%;
 
   min-width: 300px;
   min-height: 300px;
@@ -67,18 +62,38 @@ button {
   transform: translate(-50%, -50%);
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  height: 100%;
+  padding-bottom: 1rem;
+
+  position: relative;
+}
+
 .title {
   color: var(--green);
   text-transform: uppercase;
   text-align: center;
+  letter-spacing: 5px;
+  font-size: 0.8rem;
 }
 
 .text {
   color: var(--lightest);
   text-align: center;
+  max-width: 300px;
+  font-size: 1.3rem;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .divider {
+  position: absolute;
+  bottom: 0;
 }
 
 .btn {
@@ -93,25 +108,43 @@ button {
   border-radius: 50%;
 
   cursor: pointer;
+
+  position: absolute;
+
+  bottom: calc(0% - 75px);
+  left: calc(50% - 25px);
+}
+
+.message {
+  display: block;
+  font-size: 2rem;
+  color: var(--green);
+
+  position: absolute;
+  top: 2rem;
+  text-align: center;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: fit-content;
 }
 
 @media (max-width: 1024px) {
   .wrapper {
     width: 50%;
-    height: 50%;
   }
 }
 
 @media (max-width: 768px) {
   .wrapper {
     width: 75%;
-    height: 75%;
   }
 }
 
 @media (max-width: 480px) {
   .wrapper {
     width: 90%;
-    height: 90%;
+    height: 60%;
   }
 }
