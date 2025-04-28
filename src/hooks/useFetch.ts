@@ -1,33 +1,32 @@
 import { useEffect, useState } from "react";
+
+import { fetchAdvice } from "../utils/fetchAdvice";
+
 import { IAdvice } from "../models/IAdvice";
 
-interface UseFetchResult {
-  data: IAdvice | null;
-  loading: boolean;
-  error: Error | null;
-}
-
-export const useFetch = (url: string): UseFetchResult => {
-  const [data, setData] = useState<IAdvice | null>(null);
+export const useFetch = (
+  url: string,
+  cb: (url: string) => Promise<IAdvice>
+) => {
+  const [data, setData] = useState<null | IAdvice>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        setLoading(false);
-        setData(data.slip);
-        setError(null);
-      } catch (error) {
-        console.error(error);
-        setError(error as Error);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [url]);
+  const getData = async () => {
+    try {
+      const result = await fetchAdvice(url);
+      setData(result);
+    } catch (error) {
+      setError(error as Error);
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  return { data, loading, error };
+  useEffect(() => {
+    getData();
+  }, [url, cb]);
+
+  return { data, loading, error, refetch: getData };
 };
