@@ -153,4 +153,12 @@ button {
     width: 90%;
     height: 60%;
   }
+
+  .btn:hover {
+    box-shadow: none;
+  }
+
+  .btn:active {
+    box-shadow: 0px 0px 20px 5px var(--green);
+  }
 }
